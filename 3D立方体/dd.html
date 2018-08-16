@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>dd</title>
+	<style>
+		*{
+		margin: 0;
+		padding: 0;
+	}
+	body{
+		perspective: 200px;
+	}
+	div{
+		margin: 100px auto;
+		width: 100px;
+		height: 100px;
+		background: pink;
+		transition: all 4s;
+		transform-style: preserve-3d;
+	}
+	div:hover{
+		transform: rotateX(180deg) translateZ(100px);
+	}
+	</style>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

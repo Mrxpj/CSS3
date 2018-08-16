@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>旋转</title>
+	<script src="jquery-1.11.1.min.js"></script>
+	<style>
+		.xuan{
+			display: inline-block;
+			transition: all 1s;
+		}
+		.zhuan{
+			transform: rotate(360deg);
+		}
+	</style>
+	<script>
+		$(function(){
+			$(".xuan").on("click",function(){
+				$(this).toggleClass('zhuan');
+			})
+		})
+	</script>
+</head>
+<body>
+	<div class="xuan">
+		<img src="zhuan.jpg" alt="">
+	</div>
+</body>
+</html>
