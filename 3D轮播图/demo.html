@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3D轮播图</title>
+	<style>
+		.banner{
+			position: relative;
+			width: 1000px;
+			height: 600px;
+			background: #ccc;
+			margin: 100px auto;
+		}
+		.banner ul{list-style: none}
+		.banner ul li{
+			position: absolute;
+		}
+		.banner ul li img{
+			width: 100%;
+			height: 100%;
+		}
+		.first{
+			left: 320px;
+			top: 30px;
+			width: 360px;
+			height: 540px;
+			z-index: 10;
+		}
+		.second{
+			left: 60px;
+			top: 60px;
+			width: 316px;
+			height: 480px;
+			z-index: 9;
+			opacity: 0.9;
+		}
+		.last{
+			left: 624px;
+		}
+		.third{
+			left: 0;
+			top: 140px;
+			width: 220px;
+			height: 320px;
+			z-index: 8;
+			opacity: 0.8
+		}
+		.lastsecond{
+			left: 780px;
+		}
+		.fourth{
+			left: 300px;
+			top: 215px;
+			width: 114px;
+			height: 170px;
+			opacity: 0.7
+		}
+		.lastthird{
+			left: 586px;
+		}
+		.center{
+			left: 464px;
+			top: 245px;
+			width: 72px;
+			height: 110px;
+		}
+		.prev,.next{
+			position: absolute;
+			z-index: 99;
+			width: 60px;
+			height: 320px;
+			top: 140px;
+			line-height: 320px;
+			text-align: center;
+			background: rgba(0, 0, 0, 0.5);
+			color: #eee;
+			font-size: 45px;
+		}
+		.prev{
+			left: 0;
+		}
+		.next{
+			right: 0;
+		}
+	</style>
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script>
+		$(function() {
+			var move = true;//用来解决动画还未执行完就执行下一次操作
+							//在执行动画函数里加一个回调函数，如下
+			$(".prev").on('click', function() {
+				if(move){
+					move = false;
+					tap(true);
+				}
+			})
+			$(".next").on('click', function() {
+				if(move){
+					move = false;
+					tap(false);
+				}
+			})
+			//true表示往左，反之向右
+			function tap (dir) {
+				//将高度，宽度，left，top，z-indx,opacity分别存入数组
+				var arrW=[],arrH=[],arrL=[],arrT=[],arrZ=[],arrO=[];
+				$(".banner ul li").each(function(i){
+					arrW[i] = $(this).css("width");
+					arrH[i]= $(this).css("height");
+					arrL[i] = $(this).css("left");
+					arrT[i] = $(this).css("top");
+					arrZ[i] = $(this).css("z-index");
+					arrO[i] = $(this).css("opacity")
+				})
+				$(".banner ul li").each(function(i){
+					var n;
+					if(dir) {
+						n = i-1;
+						if(n<0) n = 7;
+					}else {
+						n = i+1;
+						if(n>7) n = 0;
+					}
+					$(this).css("z-index", arrZ[n])
+					$(this).animate({
+						"width": arrW[n],
+						"height": arrH[n],
+						"left": arrL[n],
+						"top": arrT[n],
+						"opacity": arrO[n]
+					},500,function(){
+						move = true
+					})
+				})
+			}
+		})
+	</script>
+</head>
+<body>
+	<div class="banner">
+		<ul>
+			<li class="first">
+				<img src="images/1.jpg">
+			</li>
+			<li class="second">
+				<img src="images/2.jpg">
+			</li>
+			<li class="third">
+				<img src="images/3.jpg">
+			</li>
+			<li class="fourth">
+				<img src="images/4.jpg">
+			</li>
+			<li class="center">
+				<img src="images/5.jpg">
+			</li>
+			<li class="fourth lastthird">
+				<img src="images/6.jpg">
+			</li>
+			<li class="third lastsecond">
+				<img src="images/7.jpg">
+			</li>
+			<li class="second last">
+				<img src="images/8.jpg">
+			</li>
+		</ul>
+		<div class="prev">
+			&lt;
+		</div>
+		<div class="next">
+			&gt;
+		</div>
+	</div>
+</body>
+</html>

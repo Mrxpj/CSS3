@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>伪类选择器</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		dl {
+			width: 540px;
+			margin: 0 auto;
+		}
+		dt {
+			width: 540px;
+			height: 20px;
+			border-bottom: 1px solid #9999;
+		}
+		dd {
+			width: 540px;
+			height: 60px;
+			border-bottom: 1px solid #9999;
+		}
+		dt span {
+			width: 70px;
+			height: 20px;
+			display: inline-block;
+			text-align: center;
+			line-height: 20px;
+		}
+		dd span{
+			width: 70px;
+			height: 60px;
+			display: inline-block;
+			text-align: center;
+			line-height: 60px;
+			position: relative;
+		}
+		dd span b,i{
+			position: absolute;
+			display: inline-block;
+			width: 70px;
+			height: 30px;
+			text-align: center;
+			line-height: 30px;
+			left: 0;
+		}
+		span b {
+			top: 0;
+			font-size: 15px;
+		}
+		span i {
+			bottom: 0;
+			font-size: 12px;
+			color: #999999;
+		}
+		span:nth-of-type(1){ /* 列表第一列会改变颜色
+			选择属于其父元素第二个 <span> 元素的每个 <span> 元素  */
+			color: #db1616
+		}
+		/* span:nth-child(2){  列表第二列会改变颜色
+			选择属于其父元素的第二个子元素的每个 <span> 元素。 
+			color: #db1616
+		} */
+	</style>
+</head>
+<body>
+	<dl>
+		<dt>
+			<span>一</span>
+			<span>二</span>
+			<span>三</span>
+			<span>四</span>
+			<span>五</span>
+			<span>六</span>
+			<span>七</span>
+		</dt>
+		<dd>
+			<span>
+				<b>1</b>
+				<i>二</i>
+			</span>
+			<span>
+				<b>2</b>
+				<i>三</i>
+			</span>
+			<span>
+				<b>3</b>
+				<i>四</i>
+			</span>
+			<span>
+				<b>4</b>
+				<i>五</i>
+			</span>
+			<span>
+				<b>5</b>
+				<i>六</i>
+			</span>
+			<span>
+				<b>6</b>
+				<i>七</i>
+			</span>
+			<span>
+				<b>7</b>
+				<i>八</i>
+			</span>
+		</dd>
+		<dd>
+			<span>
+				<b>1</b>
+				<i>二</i>
+			</span>
+			<span>
+				<b>2</b>
+				<i>三</i>
+			</span>
+			<span>
+				<b>3</b>
+				<i>四</i>
+			</span>
+			<span>
+				<b>4</b>
+				<i>五</i>
+			</span>
+			<span>
+				<b>5</b>
+				<i>六</i>
+			</span>
+			<span>
+				<b>6</b>
+				<i>七</i>
+			</span>
+			<span>
+				<b>7</b>
+				<i>八</i>
+			</span>
+		</dd>
+		<dd>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</dd>
+		<dd>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</dd>
+		<dd>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</dd>
+		<dd>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</dd>
+		<dd>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</dd>
+	</dl>
+</body>
+</html>
